@@ -13,16 +13,16 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    public int id;
 
     @Column(name = "employee_name")
-    private String name;
+    public String name;
 
     @Column(name = "department")
-    private String department;
+    public String department;
 
     @Column(name = "drink_choice")
-    private String drinkChoice;
+    public String drinkChoice;
 
     // Default constructor
     public Employee() {
