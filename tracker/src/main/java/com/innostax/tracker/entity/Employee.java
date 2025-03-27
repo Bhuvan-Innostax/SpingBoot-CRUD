@@ -6,62 +6,35 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "employee")
+@Getter  // Lombok annotation to generate getter methods for all fields
+@Setter  // Lombok annotation to generate setter methods for all fields
 public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int id;
+    private int id;  // Make the field private
 
     @Column(name = "employee_name")
-    public String name;
+    private String name;  // Make the field private
 
     @Column(name = "department")
-    public String department;
+    private String department;  // Make the field private
 
     @Column(name = "drink_choice")
-    public String drinkChoice;
+    private String drinkChoice;  // Make the field private
 
     // Default constructor
-    public Employee() {
-    }
+    public Employee() {}
 
     // Parameterized constructor
     public Employee(String name, String department, String drinkChoice) {
         this.name = name;
         this.department = department;
-        this.drinkChoice = drinkChoice;
-    }
-
-    // Getter Methods
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public String getDrinkChoice() {
-        return drinkChoice;
-    }
-
-    // Setter Methods
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public void setDrinkChoice(String drinkChoice) {
         this.drinkChoice = drinkChoice;
     }
 }
