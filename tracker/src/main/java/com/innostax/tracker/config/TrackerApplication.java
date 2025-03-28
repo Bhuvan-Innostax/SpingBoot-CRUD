@@ -1,11 +1,11 @@
-package com.innostax.tracker.config;
+package com.innostax.tracker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.innostax.tracker") // Explicitly specify the root package to scan
+@ComponentScan(basePackages = "com.innostax.tracker") 
 public class TrackerApplication {
 
     public static void main(String[] args) {

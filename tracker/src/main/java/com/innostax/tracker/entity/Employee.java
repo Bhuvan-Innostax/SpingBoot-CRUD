@@ -11,8 +11,8 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "employee")
-@Getter  // Lombok annotation to generate getter methods for all fields
-@Setter  // Lombok annotation to generate setter methods for all fields
+@Getter  
+@Setter  
 public class Employee {
 
     @Id
@@ -20,13 +20,13 @@ public class Employee {
     private int id;  // Make the field private
 
     @Column(name = "employee_name")
-    private String name;  // Make the field private
+    private String name;  
 
     @Column(name = "department")
-    private String department;  // Make the field private
+    private String department;  
 
     @Column(name = "drink_choice")
-    private String drinkChoice;  // Make the field private
+    private String drinkChoice;  
 
     // Default constructor
     public Employee() {}

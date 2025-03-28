@@ -13,7 +13,7 @@ import com.innostax.tracker.repository.EmployeeRepository;
 public class UniController {
 
     @Autowired
-    EmployeeRepository repo;
+    private EmployeeRepository repo;
 
     // 1. READ OPERATION: Get all employees
     @GetMapping("/employee")
@@ -21,10 +21,10 @@ public class UniController {
         return repo.findAll();
     }
 
-    // 2. READ OPERATION: Get a specific employee by ID
+    // 2. READ OPERATION: Get employee by id
     @GetMapping("employee/{id}")
     public Employee getEmployee(@PathVariable int id) {
-        return repo.findById(id).orElse(null); // Return null if not found
+        return repo.findById(id).orElse(null); 
     }
 
     // 3. CREATE OPERATION: Add a new employee
@@ -32,17 +32,15 @@ public class UniController {
     @ResponseStatus(code = HttpStatus.CREATED)
     public String addEmployee(@RequestBody Employee employee) {
         repo.save(employee);
-        // Use getter methods instead of directly accessing fields
         return employee.getName() + " Data is Inserted To DATABASE with employeeId " + employee.getId() + " Employee likes " + employee.getDrinkChoice();
     }
 
-    // 4. UPDATE OPERATION: Update existing employee details
+    // 4. UPDATE OPERATION: Update employee details
     @PutMapping("employee/update/{id}")
     public String updateEmployee(@PathVariable int id, @RequestBody Employee employee) {
         Employee presentEmployee = repo.findById(id).orElse(null);
         
         if (presentEmployee != null) {
-            // Update the employee details using setter methods
             presentEmployee.setName(employee.getName());
             presentEmployee.setDepartment(employee.getDepartment());
             presentEmployee.setDrinkChoice(employee.getDrinkChoice());
@@ -56,7 +54,7 @@ public class UniController {
         return "Employee not found";
     }
 
-    // 5. DELETE OPERATION: Delete an employee by ID
+    // 5. DELETE OPERATION: Delete employee by id
     @DeleteMapping("employee/delete/{id}")
     public String removeEmployee(@PathVariable int id) {
         Employee employee = repo.findById(id).orElse(null);
